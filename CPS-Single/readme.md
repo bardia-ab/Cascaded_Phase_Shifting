@@ -44,7 +44,7 @@ For example, if the capture FF operates properly at frequency $f$ and fails at $
 
 $$ Resolution = \frac{1}{f} - \frac{1}{f + \Delta f} = \frac{\Delta f}{f . (f + \Delta f)} \approx \frac{\Delta f}{f^2} $$
 
-According to [^9], a resolution of around $1\ ps$ is achievable at 500 MHz using this method.
+According to [^9], a resolution of around $1~ps$ is achievable at 500 MHz using this method.
 
 Although this method provides the required resolution, it has several major drawbacks.
 Firstly, the timing resolution is not fixed and is dependent on the frequency.
@@ -99,7 +99,7 @@ Notice the distance between two consecutive arrows equals the $S_{PS}$.
 <p align="center"><img src="doc/DPS_sample_points.png" alt="drawing" style="width:500px;"/>
 
 Although this method addresses the previous method’s drawbacks, it suffers from a poor timing resolution for conducting the timing characterization.
-The resolution of this method is determined by $S_{PS}$, which is limited to $11.2\ ps$ in modern FPGAs.
+The resolution of this method is determined by $S_{PS}$, which is limited to $11.2~ps$ in modern FPGAs.
 To tackle this issue, the resolution must be improved by more than an order of magnitude while the linearity (fixed resolution) is sustained.
 
 ## Cascaded Phase Shifting
@@ -139,8 +139,8 @@ $$ \begin{dcases}
  where N is the improvement factor by which the resolution of a single CM is improved. 
 As can be seen, the resolution is tunable by choosing the proper values for the VCO frequencies of CM1 and CM2.
 
-For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is $11.2\ ps$ corresponding to $f_{VCO}=1600\ MHz$. 
-If a resolution of $2.8\ ps$ is required ($N = 4$), there are two possible values for CM1’s VCO frequency according to~\equ{eq:freq_relation}: $1280\ MHz$ and $2133\ MHz$, among which only $1280\ MHz$ is valid. 
+For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is $11.2~ps$ corresponding to $f_{VCO}=1600\ MHz$. 
+If a resolution of $2.8~ps$ is required ($N = 4$), there are two possible values for CM1’s VCO frequency according to~\equ{eq:freq_relation}: $1280\ MHz$ and $2133\ MHz$, among which only $1280\ MHz$ is valid. 
 Therefore, $f_{{VCO}_1} = 1280\ MHz$ and $f_{{VCO}_2} = f_{{VCO}_3} = 1600\ MHz$.
 
 # References
