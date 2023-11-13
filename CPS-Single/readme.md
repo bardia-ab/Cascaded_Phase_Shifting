@@ -69,7 +69,7 @@ The process of adjusting the VCO reference voltage takes a certain amount of Tim
 This Time is called the lock-time of the PLL.
 After resetting or changing the input frequency, the PLL needs to get locked again.
 
-<p align="center"><img src="doc/pll.png" alt="drawing" style="width:400px;"/>
+<p align="center"><img src="doc/PLL.png" alt="drawing" style="width:400px;"/>
 
 PLL also has three programmable counter dividers dividing the input, VCO, and output frequencies.
 These counters have been denoted by D, M, and O and are called pre-divider, multiplier, and post-divider, respectively.
