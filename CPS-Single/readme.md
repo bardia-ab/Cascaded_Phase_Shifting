@@ -1,4 +1,5 @@
 # Introduction
+![animation](doc\anim.gif)
 This project aims at detecting comment reliability issues, such as ageing and process variation in FPGAs.
 Since these issues are reflected in the latency of FPGA’s resources, timing characterization is the common methodology for revealing these effects.
 However, measuring the delay of each individual resource is impossible directly, so the delay of multiple resources must be measured collectively in the form of paths.
