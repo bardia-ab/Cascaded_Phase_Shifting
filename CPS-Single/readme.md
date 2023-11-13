@@ -36,9 +36,9 @@ Gradually increasing the operating frequency of these FFs, the setup slack of th
 
 $$ Required~Time = T - t_{setup}$$
 
- $$ArrivalTime = t_{delay} + t_{clk->Q}$$
+ $$Arrival~Time = t_{delay} + t_{clk->Q}$$
  
- $$Setup~Slack = Required~Time - Arrival~Time + skew$$
+ $$Setup\ Slack = Required\ Time - Arrival~Time + skew$$
  
  $$Setup~Slack = T + skew - (t_{setup} + t_{delay} + t_{clk->Q})$$
  
@@ -63,9 +63,9 @@ Finally, FPGAs’ on-chip PLLs cannot supply frequencies beyond 800 MHz, meaning
 To tackle the issues mentioned above, we propose to use phase shifting instead of frequency sweeping.
 In this method, we use the dynamic phase shifting (DPS) feature of FPGAs’ clock managers (CMs).
 They are able to shift the phase with a fixed step size ($S_{PS}$) either to the right or left.
+This step size is a fraction of the VCO frequency of the CM’s PLL ($S_{PS} = \frac{f_{VCO}}{k}$).
+In US+ devices $k = 56$.
 
-This step size is a fraction of the VCO frequency of the CM’s PLL.
-In US+ devices $S_{PS} = \frac{f_{VCO}}{56}$.
 To gain a better understanding of how DPS works, familiarity with the internal structure of PLLs is of vital importance.
 
 ## PLL
@@ -128,7 +128,7 @@ Since CM1 must only shift the launch clock’s phase, the capture clock is isola
 Therefore, CM1 generates two reference clocks with the same frequency for CM2 and CM3 and performs the DPS only on CM2’s reference clock. 
 CM2 and CM3 are set equally, but DPS is only activated for CM2.
 
-<p align="center"><img src="doc/Multi-Set TCG.png" alt="drawing" style="width:300px;"/>
+<p align="center"><img src="doc/Multi-Set TCG.png" alt="drawing" style="width:400px;"/>
 
 <p align="center"><img src="doc/DPS_circuit.png" alt="drawing" style="width:400px;"/>
 
