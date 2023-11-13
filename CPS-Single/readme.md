@@ -69,7 +69,7 @@ The process of adjusting the VCO reference voltage takes a certain amount of Tim
 This Time is called the lock-time of the PLL.
 After resetting or changing the input frequency, the PLL needs to get locked again.
 
-<p align="center"><img src="doc/PLL.png" alt="drawing" style="width:400px;"/>
+<p align="center"><img src="doc/PLL.png" alt="drawing" style="width:600px;"/>
 
 PLL also has three programmable counter dividers dividing the input, VCO, and output frequencies.
 These counters have been denoted by D, M, and O and are called pre-divider, multiplier, and post-divider, respectively.
@@ -109,7 +109,7 @@ As a step smaller than $S_{PS}$ is not possible, a step equal to $S_{PS} + \frac
 Generating $N$ shifted sets using this step and combining them, we can generate a superposition set of sample points spread $\frac{S_{PS}}{N}$ apart.
 The Figure below illustrates an example of this scheme for $N = 4$. As can be seen, the sample points within each set are equally distributed by $S_{PS}$. 
 
-<p align="center"><img src="doc/Multi-Set Samples.png" alt="drawing" style="width:500px;"/>
+<p align="center"><img src="doc/Multi-Set Samples.png" alt="drawing" style="width:600px;"/>
 
 To realize this scheme, the cascaded structure shown in the Figure below is proposed. 
 Working in the incremental mode, CM1 is responsible for generating the coarser phase shift step among the sets ($1 + \frac{1}{N}S_{PS}$), while CM2 takes care of the fine phase shift steps ($S_{PS}$) within a set.
@@ -139,9 +139,9 @@ $$ \begin{dcases}
  where N is the improvement factor by which the resolution of a single CM is improved. 
 As can be seen, the resolution is tunable by choosing the proper values for the VCO frequencies of CM1 and CM2.
 
-For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is $11.2~ps$ corresponding to $f_{VCO}=1600~MHz$. 
-If a resolution of $2.8~ps$ is required ($N = 4$), there are two possible values for CM1’s VCO frequency according to~\equ{eq:freq_relation}: $1280~MHz$ and $2133~MHz$, among which only $1280~MHz$ is valid. 
-Therefore, $f_{{VCO}_1} = 1280~MHz$ and $f_{{VCO}_2} = f_{{VCO}_3} = 1600~MHz$.
+For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is $11.2 ps$ corresponding to $f_{VCO}=1600 MHz$. 
+If a resolution of $2.8 ps$ is required ($N = 4$), there are two possible values for CM1’s VCO frequency according to~\equ{eq:freq_relation}: $1280 MHz$ and $2133 MHz$, among which only $1280 MHz$ is valid. 
+Therefore, $f_{{VCO}_1} = 1280 MHz$ and $f_{{VCO}_2} = f_{{VCO}_3} = 1600 MHz$.
 
 # References
 [^1]: E. A. Stott, J. S. Wong, P. Sedcole, and P. Y. Cheung, “Degradation in FPGAs: measurement and modelling,” in Proceedings of the 18th annual ACM/SIGDA international symposium on Field programmable gate arrays, 2010, pp. 229–238.
