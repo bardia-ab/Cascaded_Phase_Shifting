@@ -139,7 +139,7 @@ $$ \begin{dcases}
  where N is the improvement factor by which the resolution of a single CM is improved. 
 As can be seen, the resolution is tunable by choosing the proper values for the VCO frequencies of CM1 and CM2.
 
-For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is $11.2 ps$ corresponding to $f_{VCO}=1600\,MHz$. 
+For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is $11.2 ps$ corresponding to $f_{VCO}=1600\ MHz$. 
 If a resolution of $2.8 ps$ is required ($N = 4$), there are two possible values for CM1’s VCO frequency according to~\equ{eq:freq_relation}: $1280 MHz$ and $2133 MHz$, among which only $1280 MHz$ is valid. 
 Therefore, $f_{{VCO}_1} = 1280 MHz$ and $f_{{VCO}_2} = f_{{VCO}_3} = 1600 MHz$.
 
