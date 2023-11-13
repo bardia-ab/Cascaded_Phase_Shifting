@@ -141,7 +141,7 @@ As can be seen, the resolution is tunable by choosing the proper values for the 
 
 For instance, in AMD Xilinx UltraScale+ devices, the highest achievable resolution is 11.2 ps corresponding to $f_{VCO}=1600~MHz$. 
 If a resolution of 2.8 ps is required ($N = 4$), there are two possible values for CM1’s VCO frequency according to above-mentioned equations: 1280 MHz and 2133 MHz, among which only 1280 MHz is valid. 
-Therefore, $f_{{VCO}_1}=1280$ MHz and f_{{VCO}_2} = f_{{VCO}_3} = 1600 MHz.
+Therefore, $f_{VCO_1}=1280$ MHz and $f_{VCO_2} = f_{{VCO}_3} = 1600$ MHz.
 
 # References
 [^1]: E. A. Stott, J. S. Wong, P. Sedcole, and P. Y. Cheung, “Degradation in FPGAs: measurement and modelling,” in Proceedings of the 18th annual ACM/SIGDA international symposium on Field programmable gate arrays, 2010, pp. 229–238.
