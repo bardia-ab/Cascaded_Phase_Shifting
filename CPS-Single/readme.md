@@ -31,11 +31,17 @@ The best practice to measure the delay of a path in FPGAs is shown in the figure
 
 Gradually increasing the operating frequency of these FFs, the setup slack of the capture FF gets smaller and smaller until it gets metastable (slack = 0). At this point, the path delay can be calculated according to the below equation:
 
-$$ Required~Time = T - t_{setup} $$
-$$ Arrival~Time = t_{delay} + t_{clk->Q} $$
-$$ Setup~Slack = Required~Time - Arrival~Time + skew$$
-$$ Setup~Slack = T + skew - (t_{setup} + t_{delay} + t_{clk->Q}) $$
-$$ t_{delay} = T + skew - (t_{setup} + t_{clk->Q}) $$
+
+$$ Required~Time = T - t_{setup}$$
+
+ $$ArrivalTime = t_{delay} + t_{clk->Q}$$
+ 
+ $$Setup~Slack = Required~Time - Arrival~Time + skew$$
+ 
+ $$Setup~Slack = T + skew - (t_{setup} + t_{delay} + t_{clk->Q})$$
+ 
+ $$t_{delay} = T + skew - (t_{setup} + t_{clk->Q})$$
+
 
 ## Resolution
 The consecutive frequencies determine the sweeping step (time resolution). 
@@ -78,8 +84,11 @@ It must be noted that M divides the VCO frequency in the feedback path but appea
 As there is negative feedback in the PLL, the coming frequencies from the reference and the VCO must be equal as shown in the equations below:
 
 $$ \cfrac{f_{in}}{D} = \frac{f_{VCO}}{M} $$
+
 $$ f_{VCO} = \frac{M}{D}f_{in} $$
+
 $$ f_{out} = \frac{f_{VCO}}{O} $$
+
 $$ f_{out} = \frac{M}{D \times O}f_{in} $$
 
 ## Dynamic Phase Shifting
@@ -126,11 +135,14 @@ The resolution of the cascaded structure equals the absolute difference between 
 Substituting $\frac{T_{VCO}}{56}$ for phase shift steps, we can define the relationship between the VCO frequencies of CM1 and CM2 according to the equations below.
 
 $$ \mid S_{PS_1} - S_{PS_2}\mid = \cfrac{S_{PS_2}}{N} $$
+
 $$ \mid \cfrac{T_{VCO_1} - T_{VCO_2}}{56}\mid = \cfrac{T_{VCO_2}}{56 \times N} $$
+
 $$\begin{dcases}
       T_{VCO_1}= \cfrac{N+1}{N} T_{VCO_2}\\
       T_{VCO_1}= \cfrac{N-1}{N} T_{VCO_2}
     \end{dcases}$$
+    
 $$ \begin{dcases}
       f_{VCO_1}= \cfrac{N}{N+1} f_{VCO_2}\\
       f_{VCO_1}= \cfrac{N}{N-1} f_{VCO_2}
