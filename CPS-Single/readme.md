@@ -44,7 +44,7 @@ For example, if the capture FF operates properly at frequency $f$ and fails at $
 
 $$ Resolution = \frac{1}{f} - \frac{1}{f + \Delta f} = \frac{\Delta f}{f . (f + \Delta f)} \approx \frac{\Delta f}{f^2} $$
 
-According to [^9], a resolution of around $1~ps$ is achievable at $500~MHz$ using this method.
+According to [^9], a resolution of around $1~ps$ is achievable at 500 MHz using this method.
 
 Although this method provides the required resolution, it has several major drawbacks.
 Firstly, the timing resolution is not fixed and is dependent on the frequency.
