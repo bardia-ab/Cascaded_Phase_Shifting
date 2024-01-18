@@ -40,7 +40,7 @@ architecture behavioral of FSM_Controller_Inc is
 	--------------- Constants ---------------------	
 	constant	c_N_Shifts	:	integer	:= 56 * g_O2 * g_N_Sets - 1;
 	--------------- States ---------------------
-	type t_my_type is (s_Shift, s_DECISION_1, s_NEXT_SEGMENT, s_ENABLE_CUT, s_END);
+	type t_my_type is (s_Shift, s_DECISION_1, s_Reset, s_NEXT_SEGMENT, s_LOCKED, s_ENABLE_CUT, s_END);
 	signal	r_State	            :	t_my_type	:= s_Shift;
 	--------------- Counters ---------------------
 	signal	r_Shift_Cntr	    :	integer range 0 to c_N_Shifts 	        := c_N_Shifts;
@@ -65,10 +65,7 @@ begin
             r_LED1          <=	'0';
             r_LED2		    <=	'0';
             r_State         <=  s_Shift;
-			r_Reset1		<=	'1';
-			r_Reset2		<=	'1';
-			r_Reset3		<=	'1';
-
+			
         elsif rising_edge(i_Clk) then
             r_Done_CM1  <=  i_Done_CM1;
             ----- Default -----
@@ -85,26 +82,33 @@ begin
                     end if;
                 when    s_DECISION_1    =>
                     if (r_Shift_Cntr = 0) then
+						r_Shift_Cntr    <=  c_N_Shifts;
                         r_Segment_Cntr	<=	r_Segment_Cntr + 1;
-                        r_State         <=  s_NEXT_SEGMENT;
+                        r_State         <=  s_Reset;
                     else
                         r_State <=  s_ENABLE_CUT;
                     end if;
-                when    s_NEXT_SEGMENT  =>
-                    if (r_Segment_Cntr = g_N_Segments) then
-                        r_State     <=  s_END;
+                when    s_Reset  =>
+					r_State		<=	s_LOCKED;
+					r_Reset1	<=	'1';
+					r_Reset2	<=	'1';
+					r_Reset3	<=	'1';
+				when	s_LOCKED		=>
+					if (i_Locked1 = '1' and i_Locked2 = '1' and i_Locked3 = '1') then
+						r_State		<=	s_NEXT_SEGMENT;
+					end if;
+				
+				when s_NEXT_SEGMENT =>
+					if (r_Segment_Cntr = g_N_Segments) then
+						r_Segment_Cntr  <=  0;
+                        r_State     	<=  s_END;
                     else
-                        r_Reset1	<=	'1';
-                        r_Reset2	<=	'1';
-                        r_Reset3	<=	'1';
                         r_LED2		<=	'1';
-                        r_State     <=  s_ENABLE_CUT;
+                        r_State		<=	s_Enable_CUT;
                     end if;
-                when	s_Enable_CUT	=>
-                    if (i_Locked1 = '1' and i_Locked2 = '1' and i_Locked3 = '1') then
-                        r_En_CUT	<=	'1';
-                        r_State		<=	s_Shift;
-                    end if;
+				when	s_Enable_CUT	=>
+					r_En_CUT	<=	'1';
+					r_State		<=	s_Shift;
                 when    s_END   =>
                     r_LED1  <=	'1';
             end case;
