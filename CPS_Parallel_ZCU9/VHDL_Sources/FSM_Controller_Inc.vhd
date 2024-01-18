@@ -44,7 +44,7 @@ architecture behavioral of FSM_Controller_Inc is
 	signal	r_State	            :	t_my_type	:= s_Shift;
 	--------------- Counters ---------------------
 	signal	r_Shift_Cntr	    :	integer range 0 to c_N_Shifts 	        := c_N_Shifts;
-	signal 	r_Segment_Cntr      :   integer range 0 to (g_N_Segments - 1)   := 0;
+	signal 	r_Segment_Cntr      :   integer range 0 to g_N_Segments   		:= 0;
 	--------------- Internal Regs ---------------------
 	signal	r_Done_CM1	        :	std_logic;
 	signal	r_En_CUT	        :	std_logic;
