@@ -65,6 +65,10 @@ begin
             r_LED1          <=	'0';
             r_LED2		    <=	'0';
             r_State         <=  s_Shift;
+			r_Reset1		<=	'1';
+			r_Reset2		<=	'1';
+			r_Reset3		<=	'1';
+
         elsif rising_edge(i_Clk) then
             r_Done_CM1  <=  i_Done_CM1;
             ----- Default -----
