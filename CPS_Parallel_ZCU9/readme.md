@@ -28,3 +28,11 @@ cd CPS_Parallel_ZCU9
 ```
 vivado -mode batch -nolog -nojournal -source CPS_Parallel_ZCU9.tcl
 ```
+
+# Process Variation Analysis
+1. Rising Transitions   
+![rising_edge](doc/rising.svg)
+
+2. Falling Transitions
+   
+![falling_edge](doc/falling.svg)
