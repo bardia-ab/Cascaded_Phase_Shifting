@@ -26,5 +26,9 @@ cd CPS_Parallel_ZCU9
 
 3- source the Tcl script
 ```
+
 vivado -mode batch -nolog -nojournal -source build_project.tcl
 ```
+
+# Process Variation Analysis
+![rising_edge](doc/rising.svg)
