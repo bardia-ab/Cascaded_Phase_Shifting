@@ -26,5 +26,5 @@ cd CPS_Parallel_ZCU9
 
 3- source the Tcl script
 ```
-vivado -mode batch -nolog -nojournal -source CPS_Parallel_ZCU9.tcl
+vivado -mode batch -nolog -nojournal -source build_project.tcl
 ```
